@@ -10,7 +10,7 @@ def aprobado(nota):
     aprobado(5) -> True
     aprobado(4.9) -> False
     """
-    raise NotImplementedError
+    return nota >= 5
 
 
 def contar_aprobados(notas):
@@ -19,7 +19,13 @@ def contar_aprobados(notas):
 
     contar_aprobados([4, 5, 7, 2]) -> 2
     """
-    raise NotImplementedError
+    aprobados = 0
+
+    for nota in notas:
+        if(aprobado(nota)):
+            aprobados += 1
+
+    return aprobados
 
 
 def cualificacion(nota):
@@ -29,4 +35,11 @@ def cualificacion(nota):
     de 7 a menos de 9 -> "Notable"
     9 ou máis -> "Sobresaliente"
     """
-    raise NotImplementedError
+    if(nota < 5):
+        return "Suspenso"
+    elif(nota < 7):
+        return "Aprobado"
+    elif(nota < 9):
+        return "Notable"
+    else:
+        return "Sobresaliente"
