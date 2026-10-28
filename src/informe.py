@@ -35,11 +35,17 @@ def seccion_listado(alumnado):
     Pistas: percorre a lista cun for e usa cualificacion().
     Une as liñas con "\\n".join(lista_de_linas)
     """
-    raise NotImplementedError
+    texto = []
+
+    for alumno in alumnado:
+        texto.append(alumno["nome"] + ": " + str(alumno["nota"]) + " (" + cualificacion(alumno["nota"]) + ")")
+
+    return "\\n".join(texto)
 
 
 def informe_completo(alumnado):
     """Xunta todas as seccións do informe."""
+    partes.append(seccion_listado(alumnado))
     partes = ["=== INFORME DE NOTAS ==="]
     # FASE 2: cada persoa engade AQUÍ a chamada á súa sección, por exemplo:
     # partes.append(seccion_xxx(alumnado))
